@@ -1,4 +1,3 @@
-from raid_roster_planner.raid_roster_drf import constants
 
 from django.db import models
 
@@ -6,13 +5,22 @@ from django.db import models
 class Player(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Role(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class GameClass(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 
 class Character(models.Model):
@@ -21,3 +29,6 @@ class Character(models.Model):
     game_class = models.ForeignKey(GameClass, on_delete=models.CASCADE)
     role = models.ManyToManyField(Role)
     armory_link = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name

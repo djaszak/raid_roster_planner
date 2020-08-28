@@ -7,7 +7,7 @@ ROLES = [
 
 
 CLASS_DK = 'death_knight'
-CLASS_DH = 'deamon_hunter'
+CLASS_DH = 'demon_hunter'
 CLASS_DRUID = 'druid'
 CLASS_HUNTER = 'hunter'
 CLASS_MAGE = 'mage'
