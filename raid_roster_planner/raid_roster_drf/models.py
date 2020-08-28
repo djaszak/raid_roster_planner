@@ -29,6 +29,7 @@ class Character(models.Model):
     game_class = models.ForeignKey(GameClass, on_delete=models.CASCADE)
     role = models.ManyToManyField(Role)
     armory_link = models.URLField(blank=True)
+    is_main = models.BooleanField()
 
     def __str__(self):
         return self.name
