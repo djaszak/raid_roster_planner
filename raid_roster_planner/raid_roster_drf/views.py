@@ -1,7 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
 from django.views.generic import FormView, ListView, TemplateView
+
+from raid_roster_planner.raid_roster_drf.forms import InputForm
 
 
 class Home(TemplateView):
@@ -11,7 +12,8 @@ class Home(TemplateView):
 
 
 class InputView(FormView):
-    pass
+    form_class = InputForm
+    template_name = 'raid_roster_drf/placeholder.html'
 
 
 class RosterView(ListView):
