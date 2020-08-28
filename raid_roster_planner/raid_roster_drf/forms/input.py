@@ -31,7 +31,7 @@ class InputForm(forms.Form):
         game_class = self.cleaned_data['game_class']
         roles = self.cleaned_data['role']
 
-        possible_roles = constants.CLASS_ROLE_MAPPING[game_class]
+        possible_roles = constants.CLASS_ROLE_MAPPING[game_class.name]
         possible_roles_human_readable = ', '.join(possible_roles)
 
         for rl in roles:
