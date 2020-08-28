@@ -1,0 +1,22 @@
+{% extends 'raid_roster_drf/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="jumbotron">
+        <form method="post" novalidate>
+            {% csrf_token %}
+                {{ form.player_name|as_crispy_field }}
+                {{ form.character_name|as_crispy_field }}
+            <div class="row">
+                <div class="col-6">
+                    {{ form.game_class|as_crispy_field }}
+                </div>
+                <div class="col-6">
+                    {{ form.role|as_crispy_field }}
+                </div>
+            </div>
+                {{ form.is_main|as_crispy_field }}
+                <input class="btn btn-secondary" type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}
