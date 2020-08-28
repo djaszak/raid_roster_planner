@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
 from django.views.generic import FormView, ListView, TemplateView
@@ -32,6 +32,8 @@ class InputView(FormView):
             character.role.add(role)
 
         character.save()
+
+        return redirect('roster')
 
 
 class RosterView(ListView):
