@@ -1,4 +1,4 @@
-from raid_roster_drf import constants
+from raid_roster_planner.raid_roster_drf import constants
 
 from django.db import models
 
@@ -13,7 +13,6 @@ class Role(models.Model):
 
 class GameClass(models.Model):
     name = models.CharField(max_length=255)
-    colour = models.CharField(max_length=255, choices=constants.CLASS_COLOURS)
 
 
 class Character(models.Model):
