@@ -6,10 +6,10 @@ from raid_roster_planner.raid_roster_drf import constants
 
 
 roles = [
-    'Tank',
-    'Healer',
-    'Ranged',
-    'Melee',
+    constants.TANK,
+    constants.HEALER,
+    constants.RANGED,
+    constants.MELEE,
 ]
 
 

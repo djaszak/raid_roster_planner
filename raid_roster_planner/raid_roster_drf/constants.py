@@ -1,12 +1,16 @@
 from django.utils.translation import ugettext as _
 
-ROLES = [
-    'Tank',
-    'Healer',
-    'Ranged DD',
-    'Melee DD',
-]
+TANK = 'Tank'
+HEALER = 'Healer'
+RANGED = 'Ranged'
+MELEE = 'Melee'
 
+roles = [
+    TANK,
+    HEALER,
+    RANGED,
+    MELEE,
+]
 
 CLASS_DK = 'death_knight'
 CLASS_DH = 'demon_hunter'
@@ -35,6 +39,21 @@ CLASS_FORM_CHOICES = [
     (CLASS_WARLOCK, _('Warlock')),
     (CLASS_WARRIOR, _('Warrior'))
 ]
+
+CLASS_ROLE_MAPPING = {
+    CLASS_DK: (TANK, MELEE),
+    CLASS_DH: (TANK, MELEE),
+    CLASS_DRUID: (TANK, HEALER, MELEE, RANGED),
+    CLASS_HUNTER: (RANGED,),
+    CLASS_MAGE: (RANGED,),
+    CLASS_MONK: (TANK, HEALER, MELEE),
+    CLASS_PALADIN: (TANK, HEALER, MELEE),
+    CLASS_PRIEST: (HEALER, RANGED),
+    CLASS_ROGUE: (MELEE,),
+    CLASS_SHAMAN: (HEALER, MELEE, RANGED),
+    CLASS_WARLOCK: (RANGED,),
+    CLASS_WARRIOR: (TANK, MELEE),
+}
 
 CLASS_COLOURS = {
     CLASS_DK: '#C41F3B',
