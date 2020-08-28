@@ -26,3 +26,14 @@ class InputForm(forms.Form):
     role = forms.ModelMultipleChoiceField(label=_('Role'), queryset=models.Role.objects.all())
     is_main = forms.BooleanField(label=_('This character is your Main.'))
 
+    def clean(self):
+        game_class = self.cleaned_data['game_class']
+        roles = self.cleaned_data['role']
+
+        possible_roles = constants.CLASS_ROLE_MAPPING[game_class]
+        possible_roles_human_readable = ', '.join(possible_roles)
+
+        for rl in roles:
+            if rl.name not in possible_roles:
+                raise forms.ValidationError(_(f'The class you chose cannot fulfill one of the roles you chose. '
+                                              f'Possible roles for this class are: {possible_roles_human_readable}'))

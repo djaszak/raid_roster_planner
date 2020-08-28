@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 
 from django.views.generic import FormView, ListView, TemplateView
 
@@ -14,6 +15,7 @@ class Home(TemplateView):
 class InputView(FormView):
     form_class = InputForm
     template_name = 'raid_roster_drf/placeholder.html'
+    success_url = reverse_lazy('roster_form')
 
 
 class RosterView(ListView):
