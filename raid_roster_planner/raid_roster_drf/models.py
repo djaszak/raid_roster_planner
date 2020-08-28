@@ -1,4 +1,3 @@
-from raid_roster_planner.raid_roster_drf import constants
 
 from django.db import models
 
