@@ -26,7 +26,7 @@ SECRET_KEY = 'm*8&a=%#bbz!vyw9r0m*^&bfjie^r==qdc14k30z+$^qo^b&0z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['rosterplanner.pythonanywhere.com']
 
 
 # Application definition
