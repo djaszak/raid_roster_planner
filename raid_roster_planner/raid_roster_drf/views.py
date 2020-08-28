@@ -19,7 +19,7 @@ class InputView(FormView):
     def form_valid(self, form):
         data = form.cleaned_data
 
-        player = Player.objects.create(name=data['player_name'])
+        player, created = Player.objects.get_or_create(name=data['player_name'])
 
         character = Character.objects.create(
             name=data['character_name'],
