@@ -2,36 +2,46 @@
 {% load static %}
 
 {% block content %}
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>
+                Raid Roster Planning für Profis
+            </h1>
 
-    <h1>
-        Raid Roster Planning für Profis
-    </h1>
+            <p>
 
-    <p>
+                Herzlich Willkommen Mitstreiter! Um in Zukunft uns Arbeit zu sparen und unsere Raid Planung
+                einfacher zu gestalten, haben wir diese kleine Webapp geschrieben, mit welcher du deine Charaktere
+                und deine gewuenschten Rollen eintragen kannst, sowie wir alle Charaktere und Rollen übersichtlich
+                betrachten können. Klicke einfach auf einen der Links unten!
 
-        Herzlich Willkommen Mitstreiter! Um in Zukunft uns Arbeit zu sparen und unsere Raid Planung
-        einfacher zu gestalten, haben wir diese kleine Webapp geschrieben, mit welcher du deine Charaktere
-        und deine gewuenschten Rollen eintragen kannst, sowie wir alle Charaktere und Rollen übersichtlich
-        betrachten können. Klicke einfach auf einen der Links unten!
-
-    </p>
-    <div class="card-deck">
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">Trage dich ein!</div>
-            <div class="card-body">
-                <p class="card-text">Hier findest du das Formular, wo du dich eintragen solltest um
-                    Hanni und Dafun die Raidplanung zu erleichtern.</p>
-                <a href="{% url "input_form" %}" class="btn btn-secondary">Klick</a>
-            </div>
+            </p>
         </div>
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">Unser Kader!</div>
-            <div class="card-body">
-                <p class="card-text">Hier hast du eine Auflistung der aktuellen Mitstreiter und ihrer Rollen. Hier
-                    solltest auch du auftauchen.</p>
-                <a href="{% url "roster_form" %}" class="btn btn-secondary">Klick</a>
+    </section>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Trage dich ein!</div>
+                        <div class="card-body">
+                            <p class="card-text">Hier findest du das Formular, wo du dich eintragen solltest um
+                                Hanni und Dafun die Raidplanung zu erleichtern.</p>
+                            <a href="{% url "input_form" %}" class="btn btn-secondary">Klick</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Unser Kader!</div>
+                        <div class="card-body">
+                            <p class="card-text">Hier hast du eine Auflistung der aktuellen Mitstreiter und ihrer Rollen. Hier
+                                solltest auch du auftauchen.</p>
+                            <a href="{% url "roster" %}" class="btn btn-secondary">Klick</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock %}

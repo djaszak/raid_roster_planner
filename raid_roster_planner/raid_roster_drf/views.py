@@ -8,12 +8,10 @@ from raid_roster_planner.raid_roster_drf.forms import InputForm
 class Home(TemplateView):
     template_name = 'raid_roster_drf/home.html'
 
-    pass
-
 
 class InputView(FormView):
     form_class = InputForm
-    template_name = 'raid_roster_drf/placeholder.html'
+    template_name = 'raid_roster_drf/input_form.html'
 
 
 class RosterView(ListView):
