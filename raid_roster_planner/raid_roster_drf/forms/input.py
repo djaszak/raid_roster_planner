@@ -23,7 +23,7 @@ class InputForm(forms.Form):
 
     # character model
     character_name = forms.CharField(label=_('Character Name'))
-    game_class = forms.ChoiceField(label=_('Class'), choices=constants.CLASS_FORM_CHOICES)
+    game_class = forms.ModelChoiceField(label=_('Class'), queryset=models.GameClass)
     role = forms.ModelMultipleChoiceField(label=_('Role'), queryset=models.Role.objects.all())
     is_main = forms.BooleanField(label=_('This character is your Main.'), required=False)
 
