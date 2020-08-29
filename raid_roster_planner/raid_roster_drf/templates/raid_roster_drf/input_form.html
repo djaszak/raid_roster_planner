@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="jumbotron">
+    <div class="container">
         <form method="post" novalidate>
             {% csrf_token %}
                 {{ form.player_name|as_crispy_field }}
