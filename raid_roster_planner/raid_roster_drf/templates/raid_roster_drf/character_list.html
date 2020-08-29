@@ -1,0 +1,10 @@
+<h1>Characters</h1>
+<ul>
+{% for character in object_list %}
+    <li>Name: {{ character.name }}</li>
+    <li>Class: {{ character.game_class }}</li>
+    <li>Role(s): {{ character.role }}</li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>

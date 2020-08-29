@@ -37,4 +37,4 @@ class InputView(FormView):
 
 
 class RosterView(ListView):
-    pass
+    queryset = Character.objects.all()
