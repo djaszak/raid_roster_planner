@@ -1,22 +1,34 @@
 {% extends 'raid_roster_drf/base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="container">
-        <form method="post" novalidate>
-            {% csrf_token %}
-                {{ form.player_name|as_crispy_field }}
-                {{ form.character_name|as_crispy_field }}
+    <div class="jumbotron">
+        <div class="container">
             <div class="row">
-                <div class="col-6">
-                    {{ form.game_class|as_crispy_field }}
+                <div class="col-md-4 order-md-2 mb-4">
+                    <img src="{% static 'raid_roster_drf/images/rastadab.png' %}" alt="rastadab" >
                 </div>
-                <div class="col-6">
-                    {{ form.role|as_crispy_field }}
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Your preferred class</h4>
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form.player_name|as_crispy_field }}
+                        {{ form.character_name|as_crispy_field }}
+                        <div class="row">
+                            <div class="col-6">
+                                {{ form.game_class|as_crispy_field }}
+                            </div>
+                            <div class="col-6">
+                                {{ form.role|as_crispy_field }}
+                            </div>
+                        </div>
+                        {{ form.is_main|as_crispy_field }}
+                        <input class="btn btn-secondary" type="submit" value="Save">
+                    </form>
+                </div>
                 </div>
             </div>
-                {{ form.is_main|as_crispy_field }}
-                <input class="btn btn-secondary" type="submit" value="Save">
-        </form>
+        </div>
     </div>
 {% endblock %}

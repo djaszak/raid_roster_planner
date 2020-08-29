@@ -38,11 +38,3 @@ class InputForm(forms.Form):
             if rl.name not in possible_roles:
                 raise forms.ValidationError(_(f'The class you chose cannot fulfill one of the roles you chose. '
                                               f'Possible roles for this class are: {possible_roles_human_readable}'))
-
-    def clean_player_name(self):
-        data = self.cleaned_data['player_name']
-
-        if models.Player.objects.filter(name=data).exists():
-            raise ValidationError(_(f'The Nickname {data} already exists.'))
-
-        return data
