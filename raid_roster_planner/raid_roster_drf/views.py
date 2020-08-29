@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
 from django.views.generic import FormView, ListView, TemplateView
@@ -19,7 +19,7 @@ class InputView(FormView):
     def form_valid(self, form):
         data = form.cleaned_data
 
-        player = Player.objects.create(name=data['player_name'])
+        player, created = Player.objects.get_or_create(name=data['player_name'])
 
         character = Character.objects.create(
             name=data['character_name'],
@@ -33,6 +33,8 @@ class InputView(FormView):
 
         character.save()
 
+        return redirect('roster')
+
 
 class RosterView(ListView):
-    pass
+    queryset = Character.objects.all()
