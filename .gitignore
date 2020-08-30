@@ -17,5 +17,5 @@
 settings_dev_local.py
 settings_local.py
 settings_paths.py
-
+/.env/
 *.sqlite3
