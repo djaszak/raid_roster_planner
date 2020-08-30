@@ -21,11 +21,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-if 'SECRET_KEY' not in os.environ:
-    with open(BASE_DIR / 'key') as f:
-        SECRET_KEY = f.read().strip()
-else:
-    SECRET_KEY = os.environ['SECRET_KEY']
+with open(BASE_DIR / 'key') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
