@@ -12,7 +12,7 @@ body {
 }
 
 @keyframes mymove {
-    from   {    transform: rotateY(0deg);}
-    to { transform: rotateY(360deg);}
+    from   {    transform: rotateZ(0deg);}
+    to { transform: rotateZ(360deg);}
 
 }
