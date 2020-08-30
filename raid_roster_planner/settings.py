@@ -22,7 +22,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if 'SECRET_KEY' not in os.environ:
-    with open('~/raid_roster_planner/.env') as f:
+    with open(BASE_DIR / 'key') as f:
         SECRET_KEY = f.read().strip()
 else:
     SECRET_KEY = os.environ['SECRET_KEY']
