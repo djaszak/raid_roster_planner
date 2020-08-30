@@ -20,7 +20,8 @@ class GameClass(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        capitalized_list = [x.capitalize() for x in self.name.split('_')]
+        return ' '.join(capitalized_list)
 
 
 class Character(models.Model):
