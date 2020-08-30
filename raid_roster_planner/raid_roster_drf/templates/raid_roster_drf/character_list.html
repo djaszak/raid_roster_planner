@@ -46,7 +46,7 @@
             </thead>
             <tbody>
             {% for character in object_list %}
-                <tr>
+                <tr style="color: {{ character.get_colour }}">
                     <td>{{ character.player.name }}</td>
                     <td>{{ character.name }}</td>
                     <td>{{ character.game_class }}</td>

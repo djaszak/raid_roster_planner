@@ -1,6 +1,8 @@
 
 from django.db import models
 
+from raid_roster_planner.raid_roster_drf import constants
+
 
 class Player(models.Model):
     name = models.CharField(max_length=255)
@@ -39,3 +41,7 @@ class Character(models.Model):
     def role_string(self):
         role_string_list = [str(role) for role in self.role.all()]
         return ', '.join(role_string_list)
+    
+    @property
+    def get_colour(self):
+        return constants.CLASS_COLOURS[self.game_class.name]
