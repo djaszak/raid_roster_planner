@@ -1,7 +1,18 @@
 body {
 }
 @media (max-width: 979px) {
-  body {
-    padding-top: 0;
-  }
+    body {
+        padding-top: 0;
+    }
+}
+
+.rotate:hover {
+    -webkit-animation: mymove 1s infinite;
+    animation: mymove 1s infinite;
+}
+
+@keyframes mymove {
+    from   {    transform: rotateY(0deg);}
+    to { transform: rotateY(360deg);}
+
 }
