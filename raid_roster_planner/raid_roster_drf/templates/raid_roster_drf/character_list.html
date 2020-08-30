@@ -1,35 +1,66 @@
 {% extends 'raid_roster_drf/base.html' %}
 
 {% block content %}
+    {#    Card album based look, will be replaced for the moment.#}
+    {#    <div class="container pt-3">#}
+    {#        <div class="album py-5 bg-light">#}
+    {#            <div class="container pt-3">#}
+    {#                <div class="row">#}
+    {#                    {% for character in object_list %}#}
+    {#                        <div class="col-md-4">#}
+    {#                            <div class="card mb-4 box-shadow">#}
+    {#                                <div class="card-body">#}
+    {#                                    <p class="card-text">#}
+    {#                                    <ul class="list-group">#}
+    {#                                        <li class="list-group-item"><b>Spieler</b>: {{ character.player.name }}</li>#}
+    {#                                        <li class="list-group-item"><b>Name</b>: {{ character.name }}</li>#}
+    {#                                        <li class="list-group-item"><b>Klasse</b>: {{ character.game_class }}</li>#}
+    {#                                            <li class="list-group-item"><b>Rolle(n)</b>: <ul>#}
+    {#                                                {% for role in character.role.all %}#}
+    {#                                                    {{ role.name }}#}
+    {#                                                {% endfor %}#}
+    {#                                            </ul>#}
+    {#                                        </li>#}
+    {#                                    </ul>#}
+    {#                                    </p>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                    {% empty %}#}
+    {#                        <p>No articles yet.</p>#}
+    {#                    {% endfor %}#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
     <div class="container pt-3">
-        <div class="album py-5 bg-light">
-            <div class="container pt-3">
-                <div class="row">
-                    {% for character in object_list %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 box-shadow">
-                                <div class="card-body">
-                                    <p class="card-text">
-                                    <ul class="list-group">
-                                        <li class="list-group-item"><b>Spieler</b>: {{ character.player.name }}</li>
-                                        <li class="list-group-item"><b>Name</b>: {{ character.name }}</li>
-                                        <li class="list-group-item"><b>Klasse</b>: {{ character.game_class }}</li>
-                                        <li class="list-group-item"><b>Rolle(n)</b>: <ul>
-                                            {% for role in character.role.all %}
-                                                {{ role.name }}
-                                            {% endfor %}
-                                        </ul>
-                                        </li>
-                                    </ul>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    {% empty %}
-                        <p>No articles yet.</p>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Playername</th>
+                <th scope="col">Charactername</th>
+                <th scope="col">Class</th>
+                <th scope="col">Role(s)</th>
+                <th scope="col">Is Main?</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for character in object_list %}
+                <tr>
+                    <td>{{ character.player.name }}</td>
+                    <td>{{ character.name }}</td>
+                    <td>{{ character.game_class }}</td>
+                    <td>
+                        <ul>
+                            {% for role in character.role.all %}
+                                {{ role.name }}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
