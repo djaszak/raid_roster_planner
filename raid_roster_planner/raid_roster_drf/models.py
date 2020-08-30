@@ -34,3 +34,8 @@ class Character(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def role_string(self):
+        role_string_list = [str(role) for role in self.role.all()]
+        return ', '.join(role_string_list)

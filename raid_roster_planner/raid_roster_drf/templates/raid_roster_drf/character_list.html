@@ -50,13 +50,7 @@
                     <td>{{ character.player.name }}</td>
                     <td>{{ character.name }}</td>
                     <td>{{ character.game_class }}</td>
-                    <td>
-                        <ul>
-                            {% for role in character.role.all %}
-                                {{ role.name }}
-                            {% endfor %}
-                        </ul>
-                    </td>
+                    <td>{{ character.role_string }}</td>
                     <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
                 </tr>
             {% endfor %}
