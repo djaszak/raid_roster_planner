@@ -1,28 +1,130 @@
 {% extends 'raid_roster_drf/base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container pt-3">
-        <table class="table table-dark character-list">
-            <thead>
-            <tr>
-                <th scope="col">Playername</th>
-                <th scope="col">Charactername</th>
-                <th scope="col">Class</th>
-                <th scope="col">Role(s)</th>
-                <th scope="col">Is Main?</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for character in object_list %}
-                <tr class="{{ character.game_class.name }}">
-                    <td>{{ character.player.name }}</td>
-                    <td>{{ character.name }}</td>
-                    <td>{{ character.game_class }}</td>
-                    <td>{{ character.role_string }}</td>
-                    <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+        <div class="tank-table">
+            <h3>Tanks</h3>
+            <table class="table table-dark character-list">
+                <thead>
+                <tr>
+                    <th scope="col">Playername</th>
+                    <th scope="col">Charactername</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Role(s)</th>
+                    <th scope="col">Is Main?</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                {% for character in object_list %}
+                    {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                        {% if 'Tank' in character.role_string %}
+                            <tbody>
+                            <tr class="{{ character.game_class.name }}">
+                                <td>{{ character.player.name }}</td>
+                                <td>{{ character.name }}</td>
+                                <td><img src="{% static class_icon %}" width="30" height="30"
+                                         alt="{{ character.game_class.name }}"> {{ character.game_class }}</td>
+                                <td>{{ character.role_string }}</td>
+                                <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="healer-table">
+            <h3>Healer</h3>
+            <table class="table table-dark character-list">
+                <thead>
+                <tr>
+                    <th scope="col">Playername</th>
+                    <th scope="col">Charactername</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Role(s)</th>
+                    <th scope="col">Is Main?</th>
+                </tr>
+                </thead>
+                {% for character in object_list %}
+                    {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                        {% if 'Healer' in character.role_string %}
+                            <tbody>
+                            <tr class="{{ character.game_class.name }}">
+                                <td>{{ character.player.name }}</td>
+                                <td>{{ character.name }}</td>
+                                <td><img src="{% static class_icon %}" width="30" height="30"
+                                         alt="{{ character.game_class.name }}"> {{ character.game_class }}</td>
+                                <td>{{ character.role_string }}</td>
+                                <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="ranged-table">
+            <h3>Ranged</h3>
+            <table class="table table-dark character-list">
+                <thead>
+                <tr>
+                    <th scope="col">Playername</th>
+                    <th scope="col">Charactername</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Role(s)</th>
+                    <th scope="col">Is Main?</th>
+                </tr>
+                </thead>
+                {% for character in object_list %}
+                    {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                        {% if 'Ranged' in character.role_string %}
+                            <tbody>
+                            <tr class="{{ character.game_class.name }}">
+                                <td>{{ character.player.name }}</td>
+                                <td>{{ character.name }}</td>
+                                <td><img src="{% static class_icon %}" width="30" height="30"
+                                         alt="{{ character.game_class.name }}"> {{ character.game_class }}</td>
+                                <td>{{ character.role_string }}</td>
+                                <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="melee-table">
+            <h3>Melee</h3>
+            <table class="table table-dark character-list">
+                <thead>
+                <tr>
+                    <th scope="col">Playername</th>
+                    <th scope="col">Charactername</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Role(s)</th>
+                    <th scope="col">Is Main?</th>
+                </tr>
+                </thead>
+                {% for character in object_list %}
+                    {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                        {% if 'Melee' in character.role_string %}
+                            <tbody>
+                            <tr class="{{ character.game_class.name }}">
+                                <td>{{ character.player.name }}</td>
+                                <td>{{ character.name }}</td>
+                                <td><img src="{% static class_icon %}" width="30" height="30"
+                                         alt="{{ character.game_class.name }}"> {{ character.game_class }}</td>
+                                <td>{{ character.role_string }}</td>
+                                <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+                            </tr>
+                            </tbody>
+                        {% endif %}
+                    {% endwith %}
+                {% endfor %}
+            </table>
+        </div>
     </div>
 {% endblock %}
