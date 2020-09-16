@@ -1,0 +1,10 @@
+{% load static %}
+
+<tr class="{{ character.game_class.name }}">
+    <td>{{ character.player.name }}</td>
+    <td>{{ character.name }}</td>
+    <td><img src="{% static class_icon %}" width="30" height="30"
+             alt="{{ character.game_class.name }}"> {{ character.game_class }}</td>
+    <td>{{ character.role_string }}</td>
+    <td>{% if character.is_main == True %}&#10004;{% else %}&times;{% endif %}</td>
+</tr>
