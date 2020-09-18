@@ -25,10 +25,11 @@ class InputView(FormView):
             name=data['character_name'],
             player=player,
             game_class=data['game_class'],
-            is_main=data['is_main'],
+            main_role=data['main_role'],
+            is_main=data['is_main']
         )
 
-        for role in data['role']:
+        for role in data['off_spec_roles'].exclude(id=data['main_role'].id):
             character.role.add(role)
 
         character.save()
