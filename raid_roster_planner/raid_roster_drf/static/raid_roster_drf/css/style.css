@@ -1,8 +1,12 @@
 body {
 }
-@media (max-width: 979px) {
+
+@media (max-width: 502px) {
     body {
         padding-top: 0;
+    }
+    .not-enough-space {
+        display: none;
     }
 }
 
@@ -12,8 +16,12 @@ body {
 }
 
 @keyframes mymove {
-    from   {    transform: rotateZ(0deg);}
-    to { transform: rotateZ(360deg);}
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
 }
 
 table.character-list {
@@ -23,42 +31,54 @@ table.character-list {
 tr.death_knight {
     background-color: #C41F3B
 }
+
 tr.demon_hunter {
     background-color: #A330C9
 }
+
 tr.druid {
     background-color: #FF7D0A
 }
+
 tr.hunter {
     background-color: #A9D271
 }
+
 tr.mage {
     background-color: #40C7EB
 }
+
 tr.monk {
     background-color: #00FF96
 }
+
 tr.paladin {
     background-color: #F58CBA
 }
+
 tr.priest {
     background-color: #FFFFFF
 }
+
 tr.rogue {
     background-color: #FFF569
 }
+
 tr.shaman {
     background-color: #0070DE
 }
+
 tr.warlock {
     background-color: #8787ED
 }
+
 tr.warrior {
     background-color: #C79C6E
 }
+
 th {
-  background: #212529;
-  position: sticky;
-  top: 0; /* Don't forget this, required for the stickiness */
-  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    background: #212529;
+    position: sticky;
+    top: 0; /* Don't forget this, required for the stickiness */
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
