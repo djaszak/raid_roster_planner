@@ -50,3 +50,8 @@ class Character(models.Model):
     @property
     def get_class_name(self):
         return f'{self.game_class}' + ' *' if self.off_spec_roles.exists() else ''
+
+    @property
+    def get_armory_link(self):
+        return f'https://worldofwarcraft.com/en-gb/character/eu/eredar/{self.name.lower()}' if not self.armory_link \
+            else self.armory_link
