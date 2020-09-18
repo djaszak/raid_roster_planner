@@ -49,4 +49,4 @@ class Character(models.Model):
 
     @property
     def get_class_name(self):
-        return f'{self.game_class}' + '*' if self.off_spec_roles.exists() else ''
+        return f'{self.game_class}' + ' *' if self.off_spec_roles.exists() else ''
