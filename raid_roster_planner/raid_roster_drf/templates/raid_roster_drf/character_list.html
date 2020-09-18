@@ -3,21 +3,23 @@
 
 {% block content %}
     <div class="container pt-3">
-    <h3>Mains</h3>
+        <h3>Mains</h3>
+{#        <table class="table table-dark character-list sticky-top">#}
+{#            <thead>#}
+{#            <tr class="table-hover">#}
+{#                <th scope="col">Playername</th>#}
+{#                <th scope="col">Charactername</th>#}
+{#                <th scope="col">Class</th>#}
+{#                <th scope="col">Role(s)</th>#}
+{#                <th scope="col">Is Main?</th>#}
+{#            </tr>#}
+{#            </thead>#}
+{#        </table>#}
         <table class="table table-dark character-list">
-            <thead>
-            <tr>
-                <th scope="col">Playername</th>
-                <th scope="col">Charactername</th>
-                <th scope="col">Class</th>
-                <th scope="col">Role(s)</th>
-                <th scope="col">Is Main?</th>
-            </tr>
-            </thead>
-
+            {% include 'raid_roster_drf/include_character_table_head.html' %}
             <tbody>
             <tr class="role-specifier-row">
-                <td>Tank</td>
+                <td colspan="3">Tank</td>
             </tr>
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
@@ -28,7 +30,7 @@
             {% endfor %}
 
             <tr class="role-specifier-row">
-                <td>Healer</td>
+                <td colspan="3">Healer</td>
             </tr>
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
@@ -39,7 +41,7 @@
             {% endfor %}
 
             <tr class="role-specifier-row">
-                <td>Ranged</td>
+                <td colspan="3">Ranged</td>
             </tr>
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
@@ -50,7 +52,7 @@
             {% endfor %}
 
             <tr class="role-specifier-row">
-                <td>Melee</td>
+                <td colspan="3">Melee</td>
             </tr>
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
@@ -64,17 +66,9 @@
     </div>
 
     <div class="container pt-3">
-    <h3>Twinks</h3>
+        <h3>Twinks</h3>
         <table class="table table-dark character-list">
-            <thead>
-            <tr>
-                <th scope="col">Playername</th>
-                <th scope="col">Charactername</th>
-                <th scope="col">Class</th>
-                <th scope="col">Role(s)</th>
-                <th scope="col">Is Main?</th>
-            </tr>
-            </thead>
+            {% include 'raid_roster_drf/include_character_table_head.html' %}
 
             <tbody>
             <tr class="role-specifier-row">
