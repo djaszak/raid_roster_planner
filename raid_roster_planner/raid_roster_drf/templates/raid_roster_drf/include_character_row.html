@@ -1,6 +1,6 @@
 {% load static %}
 
-<tr class="{{ character.game_class.name }}">
+<tr class="{{ character.game_class.name }} border">
     <td >{{ character.player.name }}</td>
     <td class="">{{ character.name }}</td>
     <td ><span>{{ character.game_class }} <img class="not-enough-space" align="right" src="{% static class_icon %}" width="22" height="22"
