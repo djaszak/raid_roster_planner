@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container pt-3">
         <h3>Mains</h3>
-        <table class="table table-dark character-list">
+        <table class="table table-borderless table-dark character-list">
             {% include 'raid_roster_drf/include_character_table_head.html' %}
             <tbody>
             {% include 'raid_roster_drf/include_role_row.html' with role='Tank' roles=roles_main %}
@@ -48,7 +48,7 @@
 
     <div class="container pt-3">
         <h3>Twinks</h3>
-        <table class="table table-dark character-list">
+        <table class="table table-borderless table-dark character-list">
             {% include 'raid_roster_drf/include_character_table_head.html' %}
 
             <tbody>
