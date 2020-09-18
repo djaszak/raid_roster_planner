@@ -7,8 +7,8 @@
         <table class="table table-dark character-list">
             {% include 'raid_roster_drf/include_character_table_head.html' %}
             <tbody>
+            {% include 'raid_roster_drf/include_role_row.html' with role='Tank' roles=roles_main %}
             {% for character in object_list %}
-                {% include 'raid_roster_drf/include_role_row.html' with role='Tank' %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Tank' in character.role_string and character.is_main %}
                         {% include 'raid_roster_drf/include_character_row.html' with character=character %}
@@ -16,7 +16,7 @@
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Healer' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Healer' roles=roles_main %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Healer' in character.role_string and character.is_main %}
@@ -25,7 +25,7 @@
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' roles=roles_main %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Ranged' in character.role_string and character.is_main %}
@@ -34,7 +34,7 @@
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Melee' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Melee' roles=roles_main %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Melee' in character.role_string and character.is_main %}
@@ -52,7 +52,7 @@
             {% include 'raid_roster_drf/include_character_table_head.html' %}
 
             <tbody>
-            {% include 'raid_roster_drf/include_role_row.html' with role='Tank' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Tank' roles=roles_twink %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Tank' in character.role_string and not character.is_main %}
@@ -61,28 +61,31 @@
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Healer' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Healer' roles=roles_twink %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Healer' in character.role_string and not character.is_main %}
+                        {% include 'raid_roster_drf/include_role_row.html' with role='Healer' %}
                         {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                     {% endif %}
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' roles=roles_twink %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Ranged' in character.role_string and not character.is_main %}
+                        {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' %}
                         {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                     {% endif %}
                 {% endwith %}
             {% endfor %}
 
-            {% include 'raid_roster_drf/include_role_row.html' with role='Melee' %}
+            {% include 'raid_roster_drf/include_role_row.html' with role='Melee' roles=roles_twink %}
             {% for character in object_list %}
                 {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
                     {% if 'Melee' in character.role_string and not character.is_main %}
+                        {% include 'raid_roster_drf/include_role_row.html' with role='Melee' %}
                         {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                     {% endif %}
                 {% endwith %}
