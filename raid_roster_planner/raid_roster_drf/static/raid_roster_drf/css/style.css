@@ -57,11 +57,14 @@ tr.paladin {
 }
 
 tr.priest {
-    background-color: #FFFFFF
+    background-color: #FFFFFF;
+    color: #343a40;
+
 }
 
 tr.rogue {
-    background-color: #FFF569
+    background-color: #FFF569;
+    color: #343a40;
 }
 
 tr.shaman {
