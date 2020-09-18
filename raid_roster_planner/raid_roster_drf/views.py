@@ -3,8 +3,9 @@ from django.urls import reverse_lazy
 
 from django.views.generic import FormView, ListView, TemplateView
 
+from raid_roster_planner.raid_roster_drf import constants
 from raid_roster_planner.raid_roster_drf.forms import InputForm
-from raid_roster_planner.raid_roster_drf.models import Player, Character
+from raid_roster_planner.raid_roster_drf.models import Player, Character, Role
 
 
 class Home(TemplateView):
@@ -40,10 +41,28 @@ class InputView(FormView):
 class RosterView(ListView):
     queryset = Character.objects.all()
 
+    def get_role_list(self, role, is_main):
+        role_id = Role.objects.get(name=role).id
+        return list(self.queryset.filter(is_main=is_main, main_role=role_id))
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         roles_main = list(Character.objects.filter(is_main=True).values_list('main_role__name', flat=True).distinct())
         roles_twink = list(Character.objects.filter(is_main=False).values_list('main_role__name', flat=True).distinct())
         context['roles_main'] = roles_main
         context['roles_twink'] = roles_twink
+
+        context['main_tanks'] = self.get_role_list(constants.TANK, True)
+        context['main_healer'] = self.get_role_list(constants.HEALER, True)
+        context['main_range'] = self.get_role_list(constants.RANGED, True)
+        context['main_melee'] = self.get_role_list(constants.MELEE, True)
+
+        context['twink_tanks'] = self.get_role_list(constants.TANK, False)
+        context['twink_healer'] = self.get_role_list(constants.HEALER, False)
+        context['twink_range'] = self.get_role_list(constants.RANGED, False)
+        context['twink_melee'] = self.get_role_list(constants.MELEE, False)
+
+        context['amount_mains'] = self.queryset.filter(is_main=True).count()
+        context['amount_twinks'] = self.queryset.filter(is_main=False).count()
+
         return context
