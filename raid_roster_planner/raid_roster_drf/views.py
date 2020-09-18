@@ -30,7 +30,7 @@ class InputView(FormView):
         )
 
         for role in data['off_spec_roles'].exclude(id=data['main_role'].id):
-            character.role.add(role)
+            character.off_spec_roles.add(role)
 
         character.save()
 
