@@ -41,8 +41,8 @@ class RosterView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        roles_main = list(Character.objects.filter(is_main=True).values_list('role__name', flat=True).distinct())
-        roles_twink = list(Character.objects.filter(is_main=False).values_list('role__name', flat=True).distinct())
+        roles_main = list(Character.objects.filter(is_main=True).values_list('main_role__name', flat=True).distinct())
+        roles_twink = list(Character.objects.filter(is_main=False).values_list('main_role__name', flat=True).distinct())
         context['roles_main'] = roles_main
         context['roles_twink'] = roles_twink
         return context
