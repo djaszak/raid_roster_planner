@@ -33,7 +33,7 @@ class InputForm(forms.Form):
         data = self.cleaned_data['is_main']
 
         if data:
-            if models.Character.objects.filter(is_main=data, player__name=self.data['player_name']).exists:
+            if models.Character.objects.filter(is_main=data, player__name=self.data['player_name']).exists():
                 raise forms.ValidationError(_('As a player you can only have one main character.'))
 
         return data
