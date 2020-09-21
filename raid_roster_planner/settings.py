@@ -27,7 +27,7 @@ with open(BASE_DIR / 'key') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['rosterplanner.pythonanywhere.com']
+ALLOWED_HOSTS = ['raid.insidious-wow.de']
 
 
 # Application definition
