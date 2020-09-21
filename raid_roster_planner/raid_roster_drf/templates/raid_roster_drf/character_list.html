@@ -9,28 +9,28 @@
             <tbody>
             {% include 'raid_roster_drf/include_role_row.html' with role='Tank' roles=roles_main character_amount=main_tanks|length %}
             {% for character in main_tanks %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Healer' roles=roles_main character_amount=main_healer|length %}
             {% for character in main_healer %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' roles=roles_main character_amount=main_range|length %}
             {% for character in main_range %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Melee' roles=roles_main character_amount=main_melee|length %}
             {% for character in main_melee %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
@@ -46,28 +46,28 @@
             <tbody>
             {% include 'raid_roster_drf/include_role_row.html' with role='Tank' roles=roles_twink character_amount=twink_tanks|length %}
             {% for character in twink_tanks %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Healer' roles=roles_twink character_amount=twink_healer|length %}
             {% for character in twink_healer %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Ranged' roles=roles_twink character_amount=twink_range|length %}
             {% for character in twink_range %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
 
             {% include 'raid_roster_drf/include_role_row.html' with role='Melee' roles=roles_twink character_amount=twink_melee|length %}
             {% for character in twink_melee %}
-                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:".png" as class_icon %}
+                {% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke.png" as class_icon %}
                     {% include 'raid_roster_drf/include_character_row.html' with character=character %}
                 {% endwith %}
             {% endfor %}
