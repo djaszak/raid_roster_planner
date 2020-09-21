@@ -31,7 +31,7 @@ class Character(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     game_class = models.ForeignKey(GameClass, on_delete=models.CASCADE)
     main_role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name='main_spec_characters')
-    off_spec_roles = models.ManyToManyField(Role, related_name='off_spec_characters')
+    off_spec_roles = models.ManyToManyField(Role, related_name='off_spec_characters', blank=True)
     armory_link = models.URLField(blank=True)
     is_main = models.BooleanField()
 
