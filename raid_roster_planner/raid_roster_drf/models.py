@@ -53,5 +53,6 @@ class Character(models.Model):
 
     @property
     def get_armory_link(self):
-        return f'https://worldofwarcraft.com/en-gb/character/{constants.SERVER_REGION}/{constants.SERVER_NAME}/{self.name.lower()}' if not self.armory_link \
+        return f'https://worldofwarcraft.com/en-gb/character/{constants.SERVER_REGION}/{constants.SERVER_NAME}/' \
+               f'{self.name.lower()}' if not self.armory_link \
             else self.armory_link
