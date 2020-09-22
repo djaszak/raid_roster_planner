@@ -1,4 +1,6 @@
 {% load static %}
+
+{% with "raid_roster_drf/images/icons/classes/"|add:character.game_class.name|add:"_stroke_light.png" as class_icon %}
 <tr class="{{ character.game_class.name }} link-row" data-href="{{ character.get_armory_link }}">
     <td>{{ character.player.name }}</td>
     <td {% if character.off_spec_role_string %}
@@ -16,3 +18,4 @@
                                                   width="22" height="22"
                                                   alt="{{ character.game_class.name }}"></span></td>
 </tr>
+{% endwith %}
