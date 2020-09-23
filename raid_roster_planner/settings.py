@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'captcha',
     'crispy_forms',
     'raid_roster_planner.raid_roster_drf'
 ]
@@ -124,4 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 

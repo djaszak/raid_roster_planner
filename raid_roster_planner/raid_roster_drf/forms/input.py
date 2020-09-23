@@ -1,19 +1,9 @@
+from captcha.fields import ReCaptchaField
+
 from django import forms
 from django.utils.translation import ugettext as _
 
 from raid_roster_planner.raid_roster_drf import models, constants
-
-
-class PlayerForm(forms.ModelForm):
-    class Meta:
-        model = models.Player
-        fields = '__all__'
-
-
-class CharacterForm(forms.ModelForm):
-    class Meta:
-        model = models.Character
-        fields = '__all__'
 
 
 class InputForm(forms.Form):
@@ -28,6 +18,7 @@ class InputForm(forms.Form):
                                                     queryset=models.Role.objects.all(),
                                                     required=False)
     is_main = forms.BooleanField(label=_('This character is your Main.'), required=False)
+    captcha = ReCaptchaField()
 
     def clean_is_main(self):
         data = self.cleaned_data['is_main']
