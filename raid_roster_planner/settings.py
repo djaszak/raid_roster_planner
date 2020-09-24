@@ -126,5 +126,10 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
-
+try:
+    with open(BASE_DIR / 'recaptcha_key.txt') as f:
+        lines = f.read().splitlines()
+        RECAPTCHA_PUBLIC_KEY = lines[0]
+        RECAPTCHA_PRIVATE_KEY = lines[1]
+except FileNotFoundError:
+    SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
