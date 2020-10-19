@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    image: dennis/raid-roster-planer
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      - DJANGO_SETTINGS_MODULE=raid_roster_planner.settings_dev
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/raid_roster_planner
