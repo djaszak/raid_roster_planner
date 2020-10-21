@@ -48,7 +48,7 @@
     <script src="{% static 'raid_roster_drf/js/bootstrap.bundle.min.js' %}"></script>
 
     <script>
-        $(document).ready(function(){
+        {% comment %}$(document).ready(function(){
           $('[data-toggle="tooltip"]').tooltip();
         });
         $(function(){
@@ -64,7 +64,20 @@
                     }
                 );
             });
-        });
+        });{% endcomment %}
+
+        function mainIt() {
+            const Http = new XMLHttpRequest();
+            const url='https://jsonplaceholder.typicode.com/posts';
+            Http.open("GET", url);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+              console.log(Http.responseText)
+            }
+
+        }
+
     </script>
 
 </body>
