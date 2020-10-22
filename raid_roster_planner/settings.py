@@ -25,7 +25,7 @@ with open(BASE_DIR / 'key') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['raid.insidious-wow.de']
 
@@ -85,7 +85,7 @@ LOGGING = {
         'logfile': {
             'level':'DEBUG',
             'class':'logging.FileHandler',
-            'filename': BASE_DIR + "/../logfile",
+            'filename': os.path.join(BASE_DIR, "logfile.log"),
         },
     },
     'root': {
