@@ -27,7 +27,7 @@ with open(BASE_DIR / 'key') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['raid.insidious-wow.de']
+ALLOWED_HOSTS = ['raid.insidious-wow.de', '49.12.108.44']
 
 
 # Application definition
@@ -83,8 +83,8 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
         'logfile': {
-            'level':'DEBUG',
-            'class':'logging.FileHandler',
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, "logfile.log"),
         },
     },
