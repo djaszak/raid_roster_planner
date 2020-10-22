@@ -4,6 +4,7 @@
 /*.sh
 /winscp.ini
 /.idea/
+/.vscode/
 /copy_owncloud.bat
 /copy_owncloud.sh
 /thumbnail_kvstore

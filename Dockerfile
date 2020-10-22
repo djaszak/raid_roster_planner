@@ -9,4 +9,4 @@ ADD . /raid_roster_planner
 RUN python ./manage.py collectstatic
 RUN python ./manage.py migrate
 
-CMD [ "python", "./manage.py", "runserver", "0.0.0.0:8000" ]
+CMD [ "python", "./manage.py", "runserver", "49.12.108.44:8000" ]
