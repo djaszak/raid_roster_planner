@@ -25,9 +25,9 @@ with open(BASE_DIR / 'key') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['raid.insidious-wow.de']
+ALLOWED_HOSTS = ['raid.insidious-wow.de', '49.12.108.44']
 
 
 # Application definition
@@ -73,6 +73,26 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'raid_roster_planner.wsgi.application'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, "logfile.log"),
+        },
+    },
+    'root': {
+        'level': 'INFO',
+        'handlers': ['console', 'logfile']
+    },
+}
 
 
 # Database

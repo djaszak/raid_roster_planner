@@ -20,3 +20,5 @@ settings_local.py
 settings_paths.py
 *.sqlite3
 key
+/logfile.log
+/recaptcha_key.txt
