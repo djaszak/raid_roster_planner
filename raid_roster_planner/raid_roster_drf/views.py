@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 
@@ -66,3 +67,19 @@ class RosterView(ListView):
         context['amount_twinks'] = self.queryset.filter(is_main=False).count()
 
         return context
+
+
+def main_it(request, name):
+    if request.method == 'GET':
+        character = Character.objects.get(name=name)
+
+        main_char = character.player.character_set.filter(is_main=True)
+        main_char.is_main = False
+        main_char.save()
+
+        character.is_main = True
+        character.save()
+
+    html = f"<html><body>Hello {character.name}.</body></html>"
+    return HttpResponse(html)
+
