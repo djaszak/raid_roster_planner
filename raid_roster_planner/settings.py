@@ -25,7 +25,7 @@ with open(BASE_DIR / 'key') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['insidious-guild.de', '49.12.108.44']
 
