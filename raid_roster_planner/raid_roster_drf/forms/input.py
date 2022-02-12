@@ -18,7 +18,7 @@ class InputForm(forms.Form):
                                                     queryset=models.Role.objects.all(),
                                                     required=False)
     is_main = forms.BooleanField(label=_('This character is your Main.'), required=False)
-    captcha = ReCaptchaField()
+    # captcha = ReCaptchaField()
 
     def clean_is_main(self):
         data = self.cleaned_data['is_main']
