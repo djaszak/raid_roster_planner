@@ -15,6 +15,7 @@ class InputForm(forms.Form):
     game_class = forms.ModelChoiceField(label=_('Class'), queryset=models.GameClass.objects.all())
     main_role = forms.ModelChoiceField(label=_('Main Role'), queryset=models.Role.objects.all())
     off_spec_roles = forms.ModelMultipleChoiceField(label=_('Off-Spec Roles'),
+                                                    widget=forms.CheckboxSelectMultiple(),
                                                     queryset=models.Role.objects.all(),
                                                     required=False)
     is_main = forms.BooleanField(label=_('This character is your Main.'), required=False)
