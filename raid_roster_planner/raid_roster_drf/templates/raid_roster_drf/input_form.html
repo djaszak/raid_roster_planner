@@ -27,8 +27,10 @@
                     </div>
                 </div>
                 <div>{{ form.is_main|as_crispy_field }}</div>
-                <div>{{ form.captcha }}</div>
-                <input class="btn btn-secondary" type="submit" value="Save">
+                <div class="form-group">{{ form.captcha }}</div>
+                <div class="form-actions">
+                    <input class="btn btn-secondary" type="submit" value="Save">
+                </div>
                 </form>
             </div>
         </div>
