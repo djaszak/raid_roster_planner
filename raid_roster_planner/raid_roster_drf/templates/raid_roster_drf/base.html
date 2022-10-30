@@ -40,45 +40,15 @@
 
 
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <!-- Complete Bootstrap JavaScript Bundle minimized-->
     <script src="{% static 'raid_roster_drf/js/bootstrap.bundle.min.js' %}"></script>
 
-    <script>
-        $(document).ready(function(){
-          $('[data-toggle="tooltip"]').tooltip();
-        });
-        $(function(){
-        $('.table tr[data-href]').each(function(){
-                $(this).css('cursor','pointer').hover(
-                    function(){
-                        $(this).addClass('active');
-                    },
-                    function(){
-                        $(this).removeClass('active');
-                    }).click( function(){
-                        window.open($(this).attr('data-href'));
-                    }
-                );
-            });
-        });
-
-        function mainIt() {
-            const Http = new XMLHttpRequest();
-            const url='https://jsonplaceholder.typicode.com/posts';
-            Http.open("GET", url);
-            Http.send();
-
-            Http.onreadystatechange = (e) => {
-              console.log(Http.responseText)
-            }
-
-        }
-
-    </script>
+    <!-- Misc -->
+    <script src="{% static 'raid_roster_drf/js/roster_tooltip.js' %}"></script>
+    <script src="{% static 'raid_roster_drf/js/play_sound.js' %}"></script>
 
 </body>
 
