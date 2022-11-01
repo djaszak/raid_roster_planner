@@ -32,54 +32,12 @@ table.character-list {
     filter: saturate(0.7);
 }
 
-tr.death_knight {
-    background-color: #C41F3B
-}
-
-tr.demon_hunter {
-    background-color: #A330C9
-}
-
-tr.druid {
-    background-color: #FF7D0A
-}
-
-tr.hunter {
-    background-color: #A9D271
-}
-
-tr.mage {
-    background-color: #40C7EB
-}
-
-tr.monk {
-    background-color: #00FF96
-}
-
-tr.paladin {
-    background-color: #F58CBA
-}
-
 tr.priest {
-    background-color: #FFFFFF;
     color: #343a40;
 }
 
 tr.rogue {
-    background-color: #FFF569;
     color: #343a40;
-}
-
-tr.shaman {
-    background-color: #0070DE
-}
-
-tr.warlock {
-    background-color: #8787ED
-}
-
-tr.warrior {
-    background-color: #C79C6E
 }
 
 th {

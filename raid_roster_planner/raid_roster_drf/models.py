@@ -46,10 +46,6 @@ class Character(models.Model):
         return ', '.join(role_string_list)
 
     @property
-    def get_colour(self):
-        return constants.CLASS_COLOURS[self.game_class.name]
-
-    @property
     def get_class_name(self):
         return f'{self.game_class}' + ' *' if self.off_spec_roles.exists() else ''
 
