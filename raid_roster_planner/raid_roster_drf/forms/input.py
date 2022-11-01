@@ -3,7 +3,7 @@ from captcha.fields import ReCaptchaField
 from django import forms
 from django.utils.translation import ugettext as _
 
-from raid_roster_planner.raid_roster_drf import models, constants
+from raid_roster_planner.raid_roster_drf import models
 
 
 class InputForm(forms.Form):
@@ -39,30 +39,25 @@ class InputForm(forms.Form):
         return data
 
     def clean_main_role(self):
-        data = self.cleaned_data['main_role']
-        game_class_id = self.data.get('game_class')
-
-        if game_class_id:
-            possible_roles = constants.CLASS_ROLE_MAPPING[models.GameClass.objects.get(id=game_class_id).name]
-            possible_roles_human_readable = ', '.join(possible_roles)
-
-            if data.name not in possible_roles:
-                raise forms.ValidationError(_(f'The class you chose cannot fulfill the main role you chose. '
+        data: models.Role = self.cleaned_data['main_role']
+        game_class: models.GameClass = self.cleaned_data.get('game_class')
+        if game_class:
+            if not game_class.specializations.filter(name=data.name).exists():
+                possible_roles_human_readable = ', '.join(game_class.specializations.values_list('name', flat=True))
+                raise forms.ValidationError(_(f'The class you chose cannot fulfill this role. '
                                               f'Possible roles for this class are: {possible_roles_human_readable}'))
 
         return data
 
     def clean_off_spec_roles(self):
         data = self.cleaned_data['off_spec_roles']
-        game_class_id = self.data.get('game_class')
+        game_class: models.GameClass = self.cleaned_data.get('game_class')
 
-        if game_class_id:
-            possible_roles = constants.CLASS_ROLE_MAPPING[models.GameClass.objects.get(id=game_class_id).name]
-            possible_roles_human_readable = ', '.join(possible_roles)
+        if game_class:
+            if data.difference(game_class.specializations.all()).exists():
+                possible_roles_human_readable = ', '.join(game_class.specializations.values_list('name', flat=True))
+                raise forms.ValidationError(
+                    _(f'The class you chose cannot fulfill one of the roles you chose. Possible roles for this '
+                      f'class are: {possible_roles_human_readable}'))
 
-            for rl in data:
-                if rl.name not in possible_roles:
-                    raise forms.ValidationError(
-                        _(f'The class you chose cannot fulfill one of the roles you chose. Possible roles for this '
-                          f'class are: {possible_roles_human_readable}'))
         return data
