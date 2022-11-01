@@ -1,14 +1,14 @@
 from django.contrib import admin
 
-from .models import Character
-from .models import GameClass
-from .models import Player
-from .models import Role
+from .forms.admin import GameClassAdminForm
+from .models import Character, GameClass, Player, Role
 
 
-# Register your models here.
+class GameClassAdmin(admin.ModelAdmin):
+    form = GameClassAdminForm
+
 
 admin.site.register(Character)
-admin.site.register(GameClass)
+admin.site.register(GameClass, GameClassAdmin)
 admin.site.register(Player)
 admin.site.register(Role)
