@@ -20,6 +20,8 @@ class Role(models.Model):
 
 class GameClass(models.Model):
     name = models.CharField(max_length=255)
+    colour = models.CharField(max_length=16)
+    specializations = models.ManyToManyField(Role, related_name='class_specialization')
 
     def __str__(self):
         capitalized_list = [x.capitalize() for x in self.name.split('_')]
