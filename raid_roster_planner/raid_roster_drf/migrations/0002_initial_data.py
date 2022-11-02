@@ -2,30 +2,28 @@
 
 from django.db import migrations
 
-from raid_roster_planner.raid_roster_drf import constants
-
 
 roles = [
-    constants.TANK,
-    constants.HEALER,
-    constants.RANGED,
-    constants.MELEE,
+    'Tank',
+    'Healer',
+    'Ranged',
+    'Melee',
 ]
 
 
 classes = [
-    constants.CLASS_DK,
-    constants.CLASS_DH,
-    constants.CLASS_DRUID,
-    constants.CLASS_HUNTER,
-    constants.CLASS_MAGE,
-    constants.CLASS_MONK,
-    constants.CLASS_PALADIN,
-    constants.CLASS_PRIEST,
-    constants.CLASS_ROGUE,
-    constants.CLASS_SHAMAN,
-    constants.CLASS_WARLOCK,
-    constants.CLASS_WARRIOR,
+    'death_knight',
+    'demon_hunter',
+    'druid',
+    'hunter',
+    'mage',
+    'monk',
+    'paladin',
+    'priest',
+    'rogue',
+    'shaman',
+    'warlock',
+    'warrior',
 ]
 
 

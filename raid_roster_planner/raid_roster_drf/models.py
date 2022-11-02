@@ -20,6 +20,8 @@ class Role(models.Model):
 
 class GameClass(models.Model):
     name = models.CharField(max_length=255)
+    colour = models.CharField(max_length=16)
+    specializations = models.ManyToManyField(Role, related_name='class_specialization')
 
     def __str__(self):
         capitalized_list = [x.capitalize() for x in self.name.split('_')]
@@ -42,10 +44,6 @@ class Character(models.Model):
     def off_spec_role_string(self):
         role_string_list = [str(role) for role in self.off_spec_roles.all()]
         return ', '.join(role_string_list)
-
-    @property
-    def get_colour(self):
-        return constants.CLASS_COLOURS[self.game_class.name]
 
     @property
     def get_class_name(self):
