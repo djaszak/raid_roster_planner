@@ -23,6 +23,9 @@ class GameClass(models.Model):
     colour = models.CharField(max_length=16)
     specializations = models.ManyToManyField(Role, related_name='class_specialization')
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         capitalized_list = [x.capitalize() for x in self.name.split('_')]
         return ' '.join(capitalized_list)
